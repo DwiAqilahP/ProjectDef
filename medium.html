@@ -163,7 +163,7 @@
             <div id="scoreContainer" style="display: none"></div>
         </div>
         <script>
-            // select all elements
+            
             const start = document.getElementById("start");
             const quiz = document.getElementById("quiz");
             const question = document.getElementById("question");
@@ -175,7 +175,7 @@
             const timeGauge = document.getElementById("timeGauge");
             const progress = document.getElementById("progress");
             const scoreDiv = document.getElementById("scoreContainer");
-            // create questions
+           
             let questions = [
                 {
                     question : "untuk memberi nama atau title sebuah web/blog harus disesuaikan dengan ...",
@@ -269,7 +269,7 @@
                     correct : "A"
                 }
             ];
-            // create some variables
+            
             const lastQuestion = questions.length - 1;
             let runningQuestion = 0;
             let count = 0;
@@ -278,7 +278,7 @@
             const gaugeUnit = gaugeWidth / questionTime;
             let TIMER;
             let score = 0;
-            // render a question
+            
             function renderQuestion(){
                 let q = questions[runningQuestion];
                 
@@ -288,7 +288,7 @@
                 choiceC.innerHTML = q.choiceC;
             }
             start.addEventListener("click",startQuiz);
-            // start quiz
+            
             function startQuiz(){
                 start.style.display = "none";
                 renderQuestion();
@@ -297,13 +297,13 @@
                 renderCounter();
                 TIMER = setInterval(renderCounter,1000); // 1000ms = 1s
             }
-            // render progress
+            
             function renderProgress(){
                 for(let qIndex = 0; qIndex <= lastQuestion; qIndex++){
                     progress.innerHTML += "<div class='prog' id="+ qIndex +"></div>";
                 }
             }
-            // counter render
+            
             function renderCounter(){
                 if(count <= questionTime){
                     counter.innerHTML = count;
@@ -323,16 +323,15 @@
                     }
                 }
             }
-            // checkjawaban
+            
             function checkAnswer(answer){
                 if( answer == questions[runningQuestion].correct){
-                    // jika jawaban benar
+                    
                     score++;
-                    // id jawaban benar akan muncul warna hijau
+                    
                     answerIsCorrect();
                 }else{
-                    // jika jawaban salah
-                    // id jawaban salah akan muncul warna merah
+                   
                     answerIsWrong();
                 }
                 count = 0;
@@ -340,20 +339,20 @@
                     runningQuestion++;
                     renderQuestion();
                 }else{
-                    // kuis selesai dan muncul score
+                    
                     clearInterval(TIMER);
                     scoreRender();
                 }
             }
-            // jawaban benar
+            
             function answerIsCorrect(){
                 document.getElementById(runningQuestion).style.backgroundColor = "#0f0";
             }
-            // jawaban salah
+          
             function answerIsWrong(){
                 document.getElementById(runningQuestion).style.backgroundColor = "#f00";
             }
-            // score render
+            
             function scoreRender(){
                 scoreDiv.style.display = "block";
                 
@@ -362,6 +361,18 @@
                 
                
                 scoreDiv.innerHTML += "<p>"+ scorePerCent +"%</p>";
+            }
+            function skip() {
+                while (viewed.includes(rand) && viewed.length != 10){
+                    rand = Math.floor(Math.random()*10 + 1);
+                }
+                nextId = rand;
+                if (viewed.length == 10) {
+                    viewed.push(11);
+                }
+                else{
+                    viewed.push(nextId);
+                }
             }
         </script>
     </body>
