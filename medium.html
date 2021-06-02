@@ -75,6 +75,7 @@
             "A. Desain Web/Blog",
             "B. Browser web/blog",
             "C. Isi web/blog",
+            "D. Blog"
             ]
         },
             {
@@ -84,7 +85,9 @@
             options: [
             "A. exe",
             "B. bytecode",
-            "C. asm"
+            "C. asm",
+            "D. etc"
+              
             ]
         },
             {
@@ -171,9 +174,9 @@
             answer: "C. <?",
             options: [
             "A. var",
-            "B. <php>",
-            "C. <?",
-            "D. </>"
+            "B. php",
+            "C. ?",
+            "D. /"
 
             ]
         },
@@ -226,10 +229,10 @@
             question: "Kode html untuk membuat baris judul pada sebuah tabel adalah..",
             answer: "'A. <tr><th>'",
             options: [
-            "'A. <tr><th>'",
-            "'B. <tr><td>'",
-            "'C. <th><td>'",
-            "D. <th><th>"
+            "'A. tr th",
+            "'B. th tr",
+            "'C. th td'",
+            "D. th th"
             ]
         }
         ];
@@ -391,15 +394,15 @@
             const scoreText = result_box.querySelector(".score_text");
             if (userScore > 20){ 
                 let scoreTag = '<span>Selamat! 🎉, Kamu mendapatkan score <p>'+ userScore +'</p>/<p>'+ questions.length +'</p></span>';
-                scoreText.innerHTML = scoreTag+'<br> NILAI : '+userScore*4+'/100';  
+                scoreText.innerHTML = scoreTag+'<br> NILAI : '+userScore*6+10+'/100';  
             }
             else if(userScore > 15){ 
                 let scoreTag = '<span>nice 😎, Kamu mendapatkan score <p>'+ userScore +'</p>/<p>'+ questions.length +'</p></span>';
-                scoreText.innerHTML = scoreTag+'<br> NILAI : '+userScore*4+'/100';
+                scoreText.innerHTML = scoreTag+'<br> NILAI : '+userScore*6+10+'/100';
             }
             else{ 
                 let scoreTag = '<span>Maaf 😐, kamu mendapatkan score <p>'+ userScore +'</p>/<p>'+ questions.length +'</p></span>';
-                scoreText.innerHTML = scoreTag+'<br> NILAI : '+userScore*4+'/100';
+                scoreText.innerHTML = scoreTag+'<br> NILAI : '+userScore*6+10+'/100';
             }
         }
 
